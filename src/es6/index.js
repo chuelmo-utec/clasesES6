@@ -142,3 +142,41 @@ helloPromise()
     .then(() => console.log('Hola, todo muy bien por aquí'))
     .catch(error => console.log(error))
 
+class calculator {
+    constructor() {
+        this.valueA = 0
+        this.valueB = 0
+    }
+
+    sum(valueA, valueB) {
+        this.valueA = valueA
+        this.valueB = valueB
+        return this.valueA + this.valueB
+    }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2,2))
+
+//import y export
+//para que esto funcione tuve que agregar en el package.json
+// "type": "module"
+import hello from './module.js'
+
+console.log(hello())
+
+//Generadores
+function* helloWorldGenerator() {
+    if (true) {
+        yield 'Hello, '
+    }
+    if (true) {
+        yield 'World!'
+    }
+}
+
+const generatorHello = helloWorldGenerator()
+console.log(generatorHello.next().value)
+console.log(generatorHello.next().value)
+console.log(generatorHello.next().value)
+
